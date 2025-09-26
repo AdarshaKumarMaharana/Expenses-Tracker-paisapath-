@@ -1,4 +1,4 @@
-export const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://expenses-tracker-paisapath.railway.app:9090/api/v1.0';
+export const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://expenses-tracker-paisapath.railway.app:8080/api/v1.0';
 const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUD_NAME || 'dhadf5h7j';
 
 console.log("url",BASE_URL)
