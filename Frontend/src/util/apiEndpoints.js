@@ -1,5 +1,8 @@
-export const BASE_URL = process.env.REACT_APP_BASE_URL;
-const CLOUDINARY_CLOUD_NAME = process.env.REACT_APP_CLOUD_NAME;
+export const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://expenses-tracker-paisapath.railway.app:9090/api/v1.0';
+const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUD_NAME || 'dhadf5h7j';
+
+console.log("url",BASE_URL)
+console.log(import.meta.env)
 
 export const API_ENDPOINTS = {
     LOGIN: "/login",
