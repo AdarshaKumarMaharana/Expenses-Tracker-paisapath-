@@ -1,5 +1,5 @@
-export const BASE_URL = "http://localhost:8080/api/v1.0";
-const CLOUDINARY_CLOUD_NAME = "dhadf5h7j";
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
+const CLOUDINARY_CLOUD_NAME = process.env.REACT_APP_CLOUD_NAME;
 
 export const API_ENDPOINTS = {
     LOGIN: "/login",
