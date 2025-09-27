@@ -23,19 +23,15 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private final UserDetailsService userDetailsService;
     private final JwtUtil jwtUtil;
 
-
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+
         String path = request.getServletPath();
 
-        // ✅ Public endpoints skip
-        if (path.equals("/api/v1.0/register") ||
-            path.equals("/api/v1.0/login") ||
-            path.equals("/api/v1.0/status") ||
-            path.equals("/api/v1.0/health") ||
-            path.equals("/api/v1.0/activate")) {
+        // ✅ Skip public endpoints (context-path aware)
+        if (isPublicEndpoint(path)) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -64,4 +60,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    // Helper method to check public endpoints
+    private boolean isPublicEndpoint(String path) {
+        return path.equals("/api/v1.0/register") ||
+               path.equals("/api/v1.0/login") ||
+               path.equals("/api/v1.0/status") ||
+               path.equals("/api/v1.0/health") ||
+               path.equals("/api/v1.0/activate");
+    }
 }
