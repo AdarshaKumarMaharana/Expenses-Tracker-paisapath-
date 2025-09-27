@@ -19,6 +19,8 @@ public class ProfileController {
     @PostMapping("/register")
     public ResponseEntity<ProfileDTO> registerProfile(@RequestBody ProfileDTO profileDTO) {
         ProfileDTO registeredProfile = profileService.registerProfile(profileDTO);
+        System.out.println("EMAIL_USERNAME=" + System.getenv("EMAIL_USERNAME"));
+        System.out.println("EMAIL_PASSWORD=" + System.getenv("EMAIL_PASSWORD"));
         return ResponseEntity.status(HttpStatus.CREATED).body(registeredProfile);
     }
 
