@@ -28,9 +28,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
-        String path = request.getServletPath();
+        String path = request.getRequestURI(); // context-path included
 
-        // ✅ Skip public endpoints (context-path aware)
+        // Skip public endpoints
         if (isPublicEndpoint(path)) {
             filterChain.doFilter(request, response);
             return;
@@ -60,7 +60,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    // Helper method to check public endpoints
     private boolean isPublicEndpoint(String path) {
         return path.equals("/api/v1.0/register") ||
                path.equals("/api/v1.0/login") ||
