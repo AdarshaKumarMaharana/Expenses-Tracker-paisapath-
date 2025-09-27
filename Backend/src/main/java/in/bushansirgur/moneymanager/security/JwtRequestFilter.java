@@ -61,7 +61,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     }
 
     private boolean isPublicEndpoint(String path) {
-        return path.equals("/register") ||
+        return path.equals("/api/v1.0/register") ||
                path.equals("/login") ||
                path.equals("/status") ||
                path.equals("/health") ||
