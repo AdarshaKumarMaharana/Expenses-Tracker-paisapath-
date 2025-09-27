@@ -119,7 +119,7 @@ const Header = () => {
                 </div>
             )}
 
-            <style jsx>{`
+            <style >{`
                 html {
                     scroll-behavior: smooth;
                 }
