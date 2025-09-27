@@ -1,8 +1,10 @@
-export const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://expenses-tracker-paisapath.railway.app:8080/api/v1.0';
-const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUD_NAME || 'dhadf5h7j';
+export const BASE_URL = import.meta.env.VITE_BASE_URL;
+const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUD_NAME ;
 
-console.log("url",BASE_URL)
-console.log(import.meta.env)
+console.log("VITE_BASE_URL:", import.meta.env.VITE_BASE_URL);
+console.log("VITE_CLOUD_NAME:", import.meta.env.VITE_CLOUD_NAME);
+console.log("All env:", import.meta.env);
+
 
 export const API_ENDPOINTS = {
     LOGIN: "/login",
